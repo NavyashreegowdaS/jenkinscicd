@@ -1,13 +1,7 @@
-FROM ubuntu
+FROM devopsedu/webapp
 
-ARG DEBIAN_FRONTEND=noninteractive
+ADD websire /var/www/html
 
-RUN apt-get update
+RUN rm /var/www/html/index.html
 
-RUN apt-get -y install apache2
-
-ADD . /var/www/html
-
-ENTRYPOINT apachectl -D FOREGROUND
-
-ENV name DEVOPS 
+CMD apachectl -D FOREGROUND
